@@ -47,6 +47,8 @@ export default {
     if (this.$store.state.SIGNALR_STATE == "-1") {
       this.$router.push({ name: "login" });
     }
+
+    this.$store.state.PROXY.on();
   }
 };
 </script>

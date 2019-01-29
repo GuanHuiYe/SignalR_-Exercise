@@ -17,9 +17,7 @@ export default {
   },
   methods: {
     addUser() {
-      console.log(this.$store.state.PROXY);
-      this.$store.state.PROXY.invoke("UpdateUser", this.name);
-      this.$store.mutations.SET_USER_NAME(this.name);
+      this.$store.dispatch("ADD_USER", this.name);
       this.$router.push({ name: "home" });
     }
   },

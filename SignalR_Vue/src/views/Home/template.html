@@ -1,12 +1,21 @@
-<div>
-  <p>名字</p>
-  <input type="text" v-model="name" />
-  <p>訊息</p>
-  <input type="text" v-model="sendText" /> <button @click="send()">發送</button>
-  <div>
-    訊息框：
-    <div :key="id" v-for="(mes,id) in message">
-      [{{ mes.time }}]{{ mes.name }}. {{ mes.text }}
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 bg-dark">
+      <h4>在線列表：</h4>
+      <div></div>
+    </div>
+    <div class="col">
+      <p>名字</p>
+      <input type="text" v-model="name" />
+      <p>訊息</p>
+      <input type="text" v-model="sendText" />
+      <button @click="send()">發送</button>
+      <div>
+        訊息框：
+        <div :key="id" v-for="(mes,id) in message">
+          [{{ mes.time }}]{{ mes.name }}. {{ mes.text }}
+        </div>
+      </div>
     </div>
   </div>
 </div>

@@ -26,7 +26,7 @@ export default new Vuex.Store({
       // //load
       // commit("SET_USERINFO", UserInfoLS.Load());
       //連線訊息
-      let conn = $.hubConnection("http://localhost:53301/");
+      let conn = $.hubConnection("http://localhost:8012/");
       let proxy = conn.createHubProxy("DemoChatHub"); //對應hub
       commit("SET_PROXY", proxy);
       //開始連線
@@ -38,9 +38,10 @@ export default new Vuex.Store({
         .fail(() => {
           commit("SET_SIGNALR_STATE", 1);
         });
+    },
+    ADD_USER({ state, commit }, name) {
+      state.PROXY.invoke("UpdateUser", name);
+      commit("SET_USER_NAME", name);
     }
-  },
-  ADD_USER({ commit }, name) {
-    commit("SET_USER_NAME", name);
   }
 });
