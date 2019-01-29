@@ -5,6 +5,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    USER_NAME: "",
     PROXY: {},
     SIGNALR_STATE: -1
   },
@@ -14,6 +15,9 @@ export default new Vuex.Store({
     },
     SET_SIGNALR_STATE(state, stateNum) {
       state.SIGNALR_STATE = stateNum;
+    },
+    SET_USER_NAME(state, name) {
+      state.USER_NAME = name;
     }
   },
   actions: {
@@ -35,5 +39,8 @@ export default new Vuex.Store({
           commit("SET_SIGNALR_STATE", 1);
         });
     }
+  },
+  ADD_USER({ commit }, name) {
+    commit("SET_USER_NAME", name);
   }
 });

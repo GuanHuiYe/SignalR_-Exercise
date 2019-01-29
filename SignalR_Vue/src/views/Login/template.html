@@ -20,9 +20,12 @@
           class="form-control"
           id="userName"
           placeholder="請輸入使用者名稱"
+          v-model="name"
         />
       </div>
-      <button type="button" class="btn btn-primary">輸入</button>
+      <button type="button" class="btn btn-primary" @click="addUser">
+        輸入
+      </button>
     </form>
   </div>
 </div>
