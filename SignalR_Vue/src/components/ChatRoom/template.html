@@ -1,0 +1,10 @@
+<div class="main bg-dark">
+  <h5 class="bg-white text-dark">{{ toUser.Name }}</h5>
+  <br />
+  <input type="text" v-model="sendText" />
+  <button class="btn btn-primary" @click="sendUser">發送</button>
+  <div>訊息：</div>
+  <div v-for="msg in message">
+    [{{ msg.time }}] {{ msg.name }} {{ msg.text }}
+  </div>
+</div>

@@ -5,9 +5,10 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    USER_NAME: "",
+    USER_NAME: {},
     PROXY: {},
-    SIGNALR_STATE: -1
+    SIGNALR_STATE: -1,
+    ONLINE_LIST: []
   },
   mutations: {
     SET_PROXY(state, proxy) {
@@ -18,6 +19,10 @@ export default new Vuex.Store({
     },
     SET_USER_NAME(state, name) {
       state.USER_NAME = name;
+    },
+    SET_ONLINE_LIST(state, data) {
+      // console.log(data);
+      state.ONLINE_LIST = JSON.parse(data);
     }
   },
   actions: {
@@ -28,6 +33,13 @@ export default new Vuex.Store({
       //連線訊息
       let conn = $.hubConnection("http://localhost:8012/");
       let proxy = conn.createHubProxy("DemoChatHub"); //對應hub
+
+      proxy.on("GetOnlineUsers", data => {
+        commit("SET_ONLINE_LIST", data);
+      });
+      proxy.on("showId", (name, id) => {
+        commit("SET_USER_NAME", { ID: id, Name: name });
+      });
       commit("SET_PROXY", proxy);
       //開始連線
       conn
@@ -39,9 +51,8 @@ export default new Vuex.Store({
           commit("SET_SIGNALR_STATE", 1);
         });
     },
-    ADD_USER({ state, commit }, name) {
+    ADD_USER({ state }, name) {
       state.PROXY.invoke("UpdateUser", name);
-      commit("SET_USER_NAME", name);
     }
   }
 });

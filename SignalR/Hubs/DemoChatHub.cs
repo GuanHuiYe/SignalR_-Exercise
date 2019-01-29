@@ -54,7 +54,7 @@ namespace SignalR
       if (user != null)
       {
         user.Name = name;
-        Clients.Client(Context.ConnectionId).showId(Context.ConnectionId);
+        Clients.Client(Context.ConnectionId).showId(name,Context.ConnectionId);
       }
       GetOnlineUsers();
     }
@@ -75,6 +75,8 @@ namespace SignalR
       //Clients 往前端打事件  All 全部人  sendMessage 事件名稱
       Clients.All.sendAllMessage(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), name, message);
     }
+
+
     //給指定的人發送訊息
     public void SendUserMessage(string connectionId,string name, string message)
     {
@@ -84,10 +86,10 @@ namespace SignalR
       if (user != null)
       {
         //給自己發訊息
-        Clients.Client(Context.ConnectionId).SendUserMessage(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + name + message);
+        Clients.Client(Context.ConnectionId).SendUserMessage(connectionId, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), name , message);
         
         //給對方發訊息
-        Clients.Client(connectionId).SendUserMessage(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + name + message);
+        Clients.Client(connectionId).SendUserMessage(Context.ConnectionId, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") ,name , message);
        
       }
       else
