@@ -13,6 +13,7 @@ namespace SignalR
   [HubName("UserHub")]
   public class UserHub : Hub
   {
+
     public static List<User> users = new List<User>();
 
     //发送消息

@@ -14,7 +14,7 @@ namespace SignalR
     public void Configuration(IAppBuilder app)
     {
       // 如需如何設定應用程式的詳細資訊，請瀏覽 https://go.microsoft.com/fwlink/?LinkID=316888
-      app.Map("/signalr", map =>
+      app.Map("", map =>
       {
         map.UseCors(CorsOptions.AllowAll); //跨域map.UseCors(CorsOptions.AllowAll); //跨域
         map.RunSignalR(new HubConfiguration { EnableJSONP = true });
