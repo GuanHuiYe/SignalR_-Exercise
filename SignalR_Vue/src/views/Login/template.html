@@ -1,0 +1,28 @@
+<div class="main">
+  <div class="bg-dark">
+    <h1 class="text-center">LogIn</h1>
+    <br />
+    <h4>
+      連線狀態：{{
+        this.$store.state.SIGNALR_STATE == 0
+          ? "連線成功"
+          : this.$store.state.SIGNALR_STATE == -1
+          ? "等待連接"
+          : "連接失敗"
+      }}
+    </h4>
+    <br />
+    <form>
+      <div class="form-group">
+        <label for="userName">使用者名稱</label>
+        <input
+          type="text"
+          class="form-control"
+          id="userName"
+          placeholder="請輸入使用者名稱"
+        />
+      </div>
+      <button type="button" class="btn btn-primary">輸入</button>
+    </form>
+  </div>
+</div>

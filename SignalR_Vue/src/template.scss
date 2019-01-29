@@ -1,0 +1,65 @@
+/*Bootstrap所有色碼*/
+$color-blue: #007bff;
+$color-indigo: #6610f2;
+$color-purple: #6f42c1;
+$color-pink: #e83e8c;
+$color-red: #dc3545;
+$color-orange: #fd7e14;
+$color-green: #28a745;
+$color-teal: #20c997;
+$color-cyan: #17a2b8;
+$color-gray: #6c757d;
+/*自己新增的*/
+$color-gray-dark: #343a40;
+$color-primary: #007bff;
+$color-secondary: #6c757d;
+$color-success: #28a745;
+$color-info: #17a2b8;
+$color-warning: #ffc107;
+$color-danger: #dc3545;
+$color-light: #f8f9fa;
+$color-dark: #343a40;
+$color-dark-blue: #62929a;
+$color-white: #efecec;
+/*自己新增的*/
+$color-hover-dark: #23272b;
+
+[v-cloak] {
+  display: none;
+}
+
+/*Bootstrap 修正*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0px;
+}
+
+.row {
+  margin: 0px;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.avatar {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: $color-white;
+  cursor: pointer;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.bg-grey {
+  background-color: $color-gray;
+}

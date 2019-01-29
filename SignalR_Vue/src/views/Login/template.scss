@@ -1,0 +1,10 @@
+@import "@/template.scss";
+.main {
+  width: 100%;
+  .bg-dark {
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 30px;
+  }
+}
